@@ -9,6 +9,11 @@ public class LinkedList
         head = new Node(value);
     }
 
+    public LinkedList()
+    {
+        head = null;
+    }
+
     public void Add(int value)
     {
         Node newNode = new Node(value, head);
@@ -22,7 +27,7 @@ public class LinkedList
             throw new IndexOutOfRangeException("No elements in list");
         }
 
-        if (head.next == null)
+        else if (head.next == null)
         {
             head = null;
         }
@@ -57,6 +62,8 @@ public class LinkedList
             {
                 return true;
             }
+
+            next = next.next;
         }
 
         return false;
@@ -91,7 +98,7 @@ public class Node
         next = null;
     }
 
-    public Node(int value, Node _next)
+    public Node(int value, Node? _next)
     {
         data = value;
         next = _next;
